@@ -1,0 +1,5 @@
+there's a problem here actually. Not a bug!
+for auth => I use supabase. In the first load, for finding out that user is logged in or not, supabase checks the localStorage to see if there's a token stored there or not.
+that means => this process should be done in client side. but authentication with nuxt usually is done by middlewares. and in the first load, middlewares run in server.
+So, if i use middleware and supabase for authentication at the same time, in the first load the user is null and empty and function doesn't work properly
+WHAT SHOULD I DO????????
