@@ -3,12 +3,10 @@
     <nav>
       <ul>
         <nuxt-link to="/adminPanel">
-          <li class="nav-item" v-if="!mobileView">پنل مدیریت</li>
-          <i class="ri-admin-fill" v-else></i>
+          <li class="nav-item">پنل مدیریت</li>
         </nuxt-link>
         <Nuxt-Link to="/">
-          <li class="nav-item" v-if="!mobileView">خانه</li>
-          <i class="ri-home-line" v-else></i>
+          <li class="nav-item">خانه</li>
         </Nuxt-Link>
       </ul>
     </nav>
@@ -41,26 +39,7 @@
 </template>
 
 <script>
-export default {
-  data() {
-    return {
-      mobileView: false,
-    };
-  },
-  methods: {
-    handleView() {
-      if (process.client) {
-        this.mobileView = window.innerWidth <= 620;
-      }
-    },
-  },
-  created() {
-    if (process.client) {
-      this.handleView();
-      window.addEventListener("resize", this.handleView);
-    }
-  },
-};
+export default {};
 </script>
 
 <style scoped>
@@ -174,37 +153,33 @@ a.nuxt-link-exact-active .nav-item {
 
 @media screen and (max-width: 620px) {
   nav {
-    width: auto;
+    width: 100%;
     height: auto;
   }
   nav ul {
-    width: 50px;
     height: 150px;
-    flex-direction: column;
-    align-items: flex-end;
-    justify-content: space-around;
-    padding: 0 0.5rem 0 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 0 0.5rem;
   }
   .nav-item {
     margin: 0.75rem 0;
+    border: 1px solid #173b1c;
   }
   ul a {
-    width: 50px;
-    height: 50px;
+    width: 95px;
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 50%;
-    border: 1px solid #296931;
+    font-size: 1rem;
+    color: #173b1c;
   }
-  ul a i {
-    color: black;
+  ul a.nuxt-link-exact-active {
+    color: #173b1c;
   }
-  a.nuxt-link-exact-active {
-    background-color: #296931;
-  }
-  a.nuxt-link-exact-active i {
-    color: white;
+  ul a.nuxt-link-exact-active .nav-item {
+    border: 1px solid transparent;
   }
 }
 
