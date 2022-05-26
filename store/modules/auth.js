@@ -27,7 +27,6 @@ export default {
       if (req) {
         const jwt = req.headers.cookie.substring(6);
         if (jwt) {
-          console.log(jwt);
           vuexContext.commit("SET_TOKEN", jwt);
         }
       } else {
@@ -41,7 +40,6 @@ export default {
             }
           });
         }
-        console.log("in else");
       }
     },
 
