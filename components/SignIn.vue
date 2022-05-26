@@ -91,7 +91,7 @@ export default {
         });
 
         if (error) throw error;
-        this.$store.dispatch("setUser", user);
+        this.$store.dispatch("setToken", user);
 
         this.$router.replace("/adminPanel");
       } catch (error) {

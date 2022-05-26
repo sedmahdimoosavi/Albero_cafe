@@ -30,15 +30,24 @@ const createStore = () => {
     },
 
     actions: {
-      async getMenu(context) {
+      async nuxtServerInit(vuexContext, context) {
         try {
           let { data, error } = await supabase.from("CafeMenu").select("*");
           if (error) throw error;
-          context.commit("INIT_MENU", data);
+          vuexContext.commit("INIT_MENU", data);
         } catch (error) {
           console.log(error);
         }
       },
+      // async getMenu(context) {
+      //   try {
+      //     let { data, error } = await supabase.from("CafeMenu").select("*");
+      //     if (error) throw error;
+      //     context.commit("INIT_MENU", data);
+      //   } catch (error) {
+      //     console.log(error);
+      //   }
+      // },
 
       async getSpecificMenu(context, payload) {
         try {

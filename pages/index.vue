@@ -9,7 +9,7 @@ import MainContent from "~/components/MainContent.vue";
 export default {
   components: { MainContent },
   created() {
-    this.$store.dispatch("getMenu");
+    // this.$store.dispatch("getMenu");
   },
   transition: "fade",
 };
